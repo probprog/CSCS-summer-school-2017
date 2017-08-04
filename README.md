@@ -30,7 +30,7 @@ git clone git@github.com:probprog/CSCS-summer-school-2017.git
 
 to clone this repository.
 
-Then change into the folder and run a Docker container by running:
+Then change into the folder and start an interactive Docker container by running:
 
 ```
 cd CSCS-summer-school-2017
