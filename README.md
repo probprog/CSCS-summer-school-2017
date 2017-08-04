@@ -37,4 +37,4 @@ cd CSCS-summer-school-2017
 docker run --rm -it -v $PWD:/workspace -p 31415:31415 gbaydin/anglican-infcomp
 ```
 
-This will start a new Docker container using the `anglican-infcomp` image that you pulled in the previous step and also mount your current folder (`CSCS-summer-school-2017`) as `/workspace` within the Docker container.
+This will start a new Docker container using the `anglican-infcomp` image that you pulled in the previous step and also mount your current folder `CSCS-summer-school-2017` as `/workspace` within the container.
