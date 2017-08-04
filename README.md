@@ -12,3 +12,12 @@ docker pull gbaydin/anglican-infcomp
 ```
 
 Beware: this can take some time (approximately 15 minutes over a fast LAN connection), so it might be a good idea to start pulling this image as soon as possible before the exercise sessions.
+
+
+### Optional: Install `nvidia-docker`
+
+If you have CUDA available, you can also install a Docker engine supporting NVIDIA GPUs. This will significantly speed up the neural network training phase, although the exercises we will cover already run fast enough without this.
+
+Please follow instructions at the [nvidia-docker repository](https://github.com/NVIDIA/nvidia-docker).
+
+## Step 2: 
