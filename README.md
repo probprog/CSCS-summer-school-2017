@@ -20,4 +20,21 @@ If you have CUDA available, you can also install a Docker engine supporting NVID
 
 Please follow instructions at the [nvidia-docker repository](https://github.com/NVIDIA/nvidia-docker).
 
-## Step 2: 
+## Step 2: Clone this repository & run the Docker container
+
+At a location of your choosing, run 
+
+```
+git clone git@github.com:probprog/CSCS-summer-school-2017.git
+```
+
+to clone this repository.
+
+Then change into the folder and run a Docker container by running:
+
+```
+cd CSCS-summer-school-2017
+docker run --rm -it -v $PWD:/workspace -p 31415:31415 gbaydin/anglican-infcomp
+```
+
+This will start a new Docker container using the `anglican-infcomp` image that you pulled in the previous step and also mount your current folder (`CSCS-summer-school-2017`) as `/workspace` within the Docker container.
