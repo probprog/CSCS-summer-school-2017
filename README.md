@@ -11,4 +11,4 @@ Start by pulling the `anglican-infcomp` image from the Docker hub:
 docker pull gbaydin/anglican-infcomp
 ```
 
-Beware: this might take some time (approximately 15 minutes over a fast LAN connection).
+Beware: this can take some time (approximately 15 minutes over a fast LAN connection), so it might be a good idea to start pulling this image as soon as possible before the exercise sessions.
