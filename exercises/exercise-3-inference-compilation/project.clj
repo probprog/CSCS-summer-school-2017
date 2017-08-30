@@ -7,5 +7,5 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/tools.cli "0.3.5"]
                  [anglican "1.1.0-SNAPSHOT"]
-                 [anglican-infcomp "0.2.2-SNAPSHOT"]]
+                 [anglican-infcomp "0.2.3-SNAPSHOT"]]
   :main exercises.core)
