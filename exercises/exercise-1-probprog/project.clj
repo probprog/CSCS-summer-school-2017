@@ -3,7 +3,7 @@
   :url "https://bitbucket.org/probprog/ppaml-summer-school-2016/"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :plugins [[lein-gorilla "0.3.4"]]
+  :plugins [[lein-gorilla "0.4.0"]]
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [anglican "1.0.0"]
                  [org.nfrac/cljbox2d.testbed "0.5.0"]
