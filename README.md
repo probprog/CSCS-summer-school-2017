@@ -63,7 +63,7 @@ In a different terminal, change into the folder and start an interactive Docker 
 
 ```
 cd CSCS-summer-school-2017
-ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+ip=$(ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' )
 xhost + $ip
 docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
 ```
