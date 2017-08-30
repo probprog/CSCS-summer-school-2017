@@ -32,6 +32,8 @@ to clone this repository containing the summer school exercises.
 
 ## Step 3: Run the Docker container
 
+### Linux
+
 First run
 
 ```
@@ -47,6 +49,25 @@ Then change into the folder and start an interactive Docker container by running
 cd CSCS-summer-school-2017
 docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
 ```
+
+### Mac
+
+First run
+
+```
+socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
+```
+
+
+In a different terminal, change into the folder and start an interactive Docker container by running:
+
+```
+cd CSCS-summer-school-2017
+ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+xhost + $ip
+docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
+```
+
 
 This will start a new Docker container using the `anglican-infcomp` image that you pulled in the previous step.
 
