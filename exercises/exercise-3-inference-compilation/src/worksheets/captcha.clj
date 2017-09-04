@@ -263,7 +263,7 @@
 ;; @@
 
 ;; **
-;;; and start the neural network which will train using these samples by running the following script in a location of your choosing:
+;;; and start the neural network which will train using these samples by running the following script in another tmux pane (see instructions on how to create and switch to a new tmux pane in the [main repo's readme](https://github.com/probprog/CSCS-summer-school-2017/blob/master/README.md#tmux)) in an arbitrary folder (leave the tmux pane open in this folder as we will call the inference command in a bit from the same folder):
 ;;; 
 ;;; `python -m pyprob.compile --obsEmb cnn2d6c --obsEmbDim 1024 --validSize 1 --batchSize 1 --standardize`
 ;;; 
@@ -296,10 +296,16 @@ test-captcha-images
 
 ;; **
 ;;; ## Inference
-;; **
-
-;; **
+;;; 
+;;; We are going to try to perform inference using three different algorithms:
+;;; - Importance sampling,
+;;; - Random-walk Metropolis Hastings (RMH) which is a variant of the Markov Chain Monte Carlo algorithm, and
+;;; - Importance sampling with the learned proposal distribution
+;;; 
+;;; ### Importance sampling
 ;;; Perform importance sampling inference and take the maximum a-posteriori (MAP) estimate. Given a set of weighted particles @@(w\_k, x\_k)\_{k = 1}^K@@, the MAP estimate is just @@x\_{\mathrm{argmax}_k w\_k}@@.
+;;; 
+;;; Importance sampling will generally not work very well because it is essentially a guess-and-check algorithm and the space of possible Captcha strings is way too large.
 ;; **
 
 ;; @@
@@ -334,7 +340,12 @@ test-captcha-images
 ;; @@
 
 ;; **
-;;; Perform inference using the random-walk Metropolis Hastings (`rmh`) algorithm which is a variant of the Markov Chain Monte Carlo and use the sample from the last iteration as an estimate for the latent variables in the Captcha model:
+;;; ### Random-walk Metropolis Hastings
+;;; 
+;;; Perform inference using the random-walk Metropolis Hastings (`rmh`) algorithm which is a variant of the Markov Chain Monte Carlo and use the sample from the last iteration as an estimate for the latent variables in the Captcha model.
+;;; 
+;;; RMH will eventually work but it takes a lot of iterations (around 100000) for it to converge to anything reasonable.
+;;; This will take too much time.
 ;; **
 
 ;; @@
@@ -362,19 +373,21 @@ test-captcha-images
 ;; @@
 
 ;; **
-;;; Run importance sampling using the proposals from the neural network.
+;;; ### Importance sampling using proposals from the neural network
 ;;; 
-;;; Before running the following block, run the neural network proposal server from `resources/compiled-artifacts/`
+;;; Before running the following block, run the neural network proposal server from the tmux pane from which we started the compilation step:
 ;;; 
 ;;; ```
 ;;; python -m pyprob.infer
 ;;; ```
 ;;; 
-;;; which will start the PyTorch-based inference server for running the neural network during inference.
+;;; This will start the PyTorch-based inference server for running the neural network during inference.
+;;; 
+;;; Inference sampling with proposals from the neural network work very well if we had the time to compile our artifact properly. Please check the [solutions notebook](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha-solutions.clj) for a well trained compilation artifact for a Captcha query.
 ;; **
 
 ;; @@
-(def num-particles 10)
+(def num-particles 2)
 (def csis-states-list (map (fn [observe]
                              (take num-particles (infer :csis captcha [observe])))
                            test-captchas))
@@ -423,11 +436,10 @@ test-captcha-images
 (def csis-letters (map :letters csis-MAP-list))
 (table/table-view (m/transpose [ground-truth-letters is-letters rmh-letters csis-letters]) :columns ['Ground 'Importance 'RMH 'CSIS])
 
-
 ; Recognition rates
-(def is-rate (* 100 (/ (count (filter identity (map = ground-truth-letters is-letters))) (count ground-truth-letters))))
-(def rmh-rate (* 100 (/ (count (filter identity (map = ground-truth-letters rmh-letters))) (count ground-truth-letters))))
-(def csis-rate (* 100 (/ (count (filter identity (map = ground-truth-letters csis-letters))) (count ground-truth-letters))))
+(def is-rate (* 100.0 (/ (count (filter identity (map = ground-truth-letters is-letters))) (count ground-truth-letters))))
+(def rmh-rate (* 100.0 (/ (count (filter identity (map = ground-truth-letters rmh-letters))) (count ground-truth-letters))))
+(def csis-rate (* 100.0 (/ (count (filter identity (map = ground-truth-letters csis-letters))) (count ground-truth-letters))))
 
 ; Levenshtein distances
 (def is-levenshtein (mean (map levenshtein-normalized ground-truth-letters is-letters)))

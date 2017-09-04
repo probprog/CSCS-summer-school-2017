@@ -71,14 +71,33 @@ ip=$(ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' )
 docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
 ```
 
-### Windows
+### Windows 10
 
 Install [Docker](https://docs.docker.com/docker-for-windows/install/) and [Git bash](https://git-for-windows.github.io/).  In the toolbar click the Docker button
 and increase the memory it uses under the advanced tab to, ideally, 8GB.
 
+Using Windows Powershell run `bash` then run `ipconfig` to get your machines ip address then run the following command with 999.999.999.999 replaced with your ip address
+
+```
+docker run --rm -it -p 31415:31415 -v ${PWD}:/workspace -e DISPLAY=999.999.999.999:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
+```
+
+In the docker window then run
+
+```
+lein gorilla :port 31415 :ip 0.0.0.0
+```
 
 
+Then open a browser and go to
 
+```
+http://127.0.0.1:31415/worksheet.html
+```
+
+On Windows the physics example program will not display X-windows contents correctly with these settings.  
+
+------------------------------------------
 
 
 This will have started a new Docker container using the `anglican-infcomp` image that you pulled in the previous step.
@@ -128,21 +147,22 @@ We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker co
 docker run --rm -it -p 8888:8888 -v $PWD:/workspace gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
 
-This will start a Jupyter server inside the Docker container. In the terminal, you should see lines giving you a local url with an instance-specific token, which will look like this:
+This will start a Jupyter server inside the Docker container. In the terminal, you should see a line such as the following, telling you that the server is running and ready to accept connections:
 
 ```
-    Copy/paste this URL into your browser when you connect for the first time,
-    to login with a token:
-        http://0.0.0.0:8888/?token=600606ea4ef1358f13023e2e27c028a3ab8d5fe569be746c
+[I 20:09:17.270 NotebookApp] The Jupyter Notebook is running at: http://0.0.0.0:8888/
+
 ```
 
-Depending on the terminal you use, you can either right click on this link to open it in a web browser or copy and paste this link into the address bar a web browser.
+Depending on the terminal you use, you can either right click on the link `http://0.0.0.0:8888/` to open it in a web browser or just directly type it into the address bar a web browser.
 
 You should now see a web browser window such as this:
 
-![](/resources/Screenshot_2017-09-04_21-28-09.png?raw=true)
+![](/resources/Screenshot_2017-09-04_22-09-44.png?raw=true)
 
-Please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
+Enter `cscs` as the password to authenticate.
+
+Now please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
 
 ![](/resources/Screenshot_2017-09-04_21-32-12.png?raw=true)
 
@@ -171,7 +191,7 @@ Once inside a tmux session, you can:
 
 Once detached, you can re-attach to a detached session using `tmux attach`.
 
-#### The exercise
+#### The Captcha worksheet
 
 Create a new tmux session from the `exercises/exercise-3-inference-compilation` folder by running `tmux` and split the session to two panes using `Control + b` and `"`.
 In one of the panes, start a Clojure browser-based repl
@@ -181,3 +201,9 @@ lein gorilla :port 31415 :ip 0.0.0.0
 ```
 
 Open a web browser and browse to the Captcha exercise in [src/worksheets/captcha.clj](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha.clj) (solutions are [here](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha-solutions.clj) and follow the instructions.
+
+When you work through the notebook, there will be a point in which you will switch to the other tmux pane using `Control + b` and `<arrow key>` to start training the neural network.
+
+#### Downloading the pre-trained compilation artifact
+
+For the solutions worksheet to work, you will need to download a pre-trained artifact for the Captcha probabilistic program from [here](http://www.robots.ox.ac.uk/~tuananh/infcomp-artifacts/pyprob-artifact-20170904-180331) into the `exercises/exercise-3-inference-compilation/resources/` folder.
