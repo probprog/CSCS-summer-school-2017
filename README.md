@@ -71,14 +71,33 @@ ip=$(ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' )
 docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
 ```
 
-### Windows
+### Windows 10
 
 Install [Docker](https://docs.docker.com/docker-for-windows/install/) and [Git bash](https://git-for-windows.github.io/).  In the toolbar click the Docker button
 and increase the memory it uses under the advanced tab to, ideally, 8GB.
 
+Using Windows Powershell run `bash` then run `ipconfig` to get your machines ip address then run the following command with 999.999.999.999 replaced with your ip address
+
+```
+docker run --rm -it -p 31415:31415 -v ${PWD}:/workspace -e DISPLAY=999.999.999.999:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
+```
+
+In the docker window then run
+
+```
+lein gorilla :port 31415 :ip 0.0.0.0
+```
 
 
+Then open a browser and go to
 
+```
+http://127.0.0.1:31415/worksheet.html
+```
+
+On Windows the physics example program will not display X-windows contents correctly with these settings.  
+
+------------------------------------------
 
 
 This will have started a new Docker container using the `anglican-infcomp` image that you pulled in the previous step.
