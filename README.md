@@ -140,9 +140,11 @@ Depending on the terminal you use, you can either right click on this link to op
 
 You should now see a web browser window such as this:
 
-![](/resources/Screenshot_2017-09-04_21-28-09.png?raw=true)
+![](/resources/Screenshot_2017-09-04_22-09-44.png?raw=true)
 
-Please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
+Enter `cscs` as the password to authenticate.
+
+Now please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
 
 ![](/resources/Screenshot_2017-09-04_21-32-12.png?raw=true)
 
