@@ -86,7 +86,7 @@ If you want to run with GPU support, replace `docker` with `nvidia-docker` in th
 
 # Exercises
 
-## 1) Probabilistic programming in Anglican
+## Exercise 1: Probabilistic programming in Anglican
 
 In the Docker instance change directory into the first programming project
 
@@ -117,16 +117,25 @@ Note that these exercise links will not work if you choose a different port than
 
 Anglican [documentation](http://www.robots.ox.ac.uk/~fwood/anglican/language/index.html) is available online, as are a number of helpful and simple [example programs](http://www.robots.ox.ac.uk/~fwood/anglican/examples/index.html).
 
-## 2) Deep learning in Pytorch
+## Exercise 2: Deep learning in Pytorch
 
-We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker container
+We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker container. Start by running
 
 ```
-docker run --rm -it -p 8888:8888 -v $PWD:/workspace -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+docker run --rm -it -p 8888:8888 -v $PWD:/workspace gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
 
+This will start a Jupyter server inside the Docker container. In the terminal, you should see lines giving you a local url with an instance-specific token, which looks like this:
 
-## 3) Inference Compilation
+```
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://0.0.0.0:8888/?token=600606ea4ef1358f13023e2e27c028a3ab8d5fe569be746c
+```
+
+Depending on the terminal you use, you can either right click on this link to open it in a web browser or copy and paste this link into the address bar a web browser.
+
+## Exercise 3: Inference Compilation
 
 In the Docker instance change directory into the third programming project
 
