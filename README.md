@@ -1,6 +1,8 @@
 # CSCS-summer-school-2017
 CSCS-ICS-DADSi Summer School: Accelerating Data Science with HPC, September 4 – 6, 2017
 
+# Preparation
+
 ## Step 1: Get the Docker image
 
 Prerequisite: you should have [Docker](https://www.docker.com/) installed.  After you install Docker you should configure it via `Preferences/Advances` to allow the Docker image to use 8Gb of memory.
@@ -82,9 +84,9 @@ In this command `--rm` indicates that the container will be removed when it exis
 
 If you want to run with GPU support, replace `docker` with `nvidia-docker` in the above command.
 
-## Step 4: Exercises
+# Exercises
 
-### 1) Probabilistic programming in Anglican
+## 1) Probabilistic programming in Anglican
 
 In the Docker instance change directory into the first programming project
 
@@ -115,9 +117,16 @@ Note that these exercise links will not work if you choose a different port than
 
 Anglican [documentation](http://www.robots.ox.ac.uk/~fwood/anglican/language/index.html) is available online, as are a number of helpful and simple [example programs](http://www.robots.ox.ac.uk/~fwood/anglican/examples/index.html).
 
-### 2) Deep learning in Pytorch
+## 2) Deep learning in Pytorch
 
-### 3) Inference Compilation
+We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker container
+
+```
+docker run --rm -it -p 8888:8888 -v $PWD:/workspace -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+```
+
+
+## 3) Inference Compilation
 
 In the Docker instance change directory into the third programming project
 
