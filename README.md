@@ -40,7 +40,7 @@ First run
 xhost +
 ```
 
-to allow access to the X server from the docker container (this is needed for one of the exercises where a GUI is used).
+to allow access to the X server from the Docker container (this is needed for one of the exercises where a GUI is used).
 
 
 Then change into the folder and start an interactive Docker container by running:
@@ -64,8 +64,8 @@ In a different terminal, change into the folder and start an interactive Docker 
 
 ```
 cd CSCS-summer-school-2017
+xhost +
 ip=$(ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' )
-xhost + $ip
 docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
 ```
 
@@ -86,7 +86,7 @@ If you want to run with GPU support, replace `docker` with `nvidia-docker` in th
 
 ### 1) Probabilistic programming in Anglican
 
-In the docker instance change directory into the first programming project
+In the Docker instance change directory into the first programming project
 
 ```
 cd exercises/exercise-1-probprog
@@ -107,14 +107,46 @@ We recommend going through the following 4 exercises in order.  We recommend not
   3. [02-gaussian.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/02-gaussian.clj)
   4. [03-physics.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/03-physics.clj)
 
-There are more exercises available and also accessible through the workbook GUI tab in the upper right hand corner.  
+There are more exercises available and also accessible through the workbook GUI tab in the upper right hand corner.
 
 Note that these exercise links will not work if you choose a different port than `31415`, however, regardless of port choice the exercise workbooks will be available by name from the GUI tab.  If they do not work at all this suggests a problem in your setup and help should be sought from the presenters in the first instance.  
 
-#### Important : Online [Anglican](http://www.robots.ox.ac.uk/~fwood/anglican/) documentation
+#### Important: Online [Anglican](http://www.robots.ox.ac.uk/~fwood/anglican/) documentation
 
 Anglican [documentation](http://www.robots.ox.ac.uk/~fwood/anglican/language/index.html) is available online, as are a number of helpful and simple [example programs](http://www.robots.ox.ac.uk/~fwood/anglican/examples/index.html).
 
 ### 2) Deep learning in Pytorch
 
 ### 3) Inference Compilation
+
+In the Docker instance change directory into the third programming project
+
+```
+cd exercises/exercise-3-inference-compilation
+```
+
+#### tmux
+Then start a [tmux](https://github.com/tmux/tmux/wiki) session which will let you switch between several programs in the same terminal (this will be needed to run the probabilistic program and the neural network at the same time):
+
+```
+tmux
+```
+
+Once inside a tmux session, you can:
+- Split panes: `Control + b` and `"`
+- Switch between panes: `Control + b` and `<arrow key>`
+- Exit using `exit` command
+- Detach the current session: `Control + b` and `d`
+
+Once detached, you can re-attach to a detached session using `tmux attach`.
+
+#### The exercise
+
+Create a new tmux session from the `exercises/exercise-3-inference-compilation` folder by running `tmux` and split the session to two panes using `Control + b` and `"`.
+In one of the panes, start a Clojure browser-based repl
+
+```
+lein gorilla :port 31415 :ip 0.0.0.0
+```
+
+Open a web browser and browse to the Captcha exercise in [src/worksheets/captcha.clj](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha.clj) (solutions are [here](http://0.0.0.0:31415/worksheet.html?filename=src/solutions/captcha-solutions.clj) and follow the instructions.
