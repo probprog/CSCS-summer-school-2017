@@ -71,7 +71,10 @@ docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.
 
 ### Windows
 
-??????
+Install [Docker](https://docs.docker.com/docker-for-windows/install/) and [Git bash](https://git-for-windows.github.io/).  In the toolbar click the Docker button
+and increase the memory it uses under the advanced tab to, ideally, 8GB.
+
+
 
 
 
