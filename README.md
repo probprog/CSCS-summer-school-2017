@@ -104,3 +104,7 @@ We recommend going through the following 4 exercises in order.  We recommend not
 There are more exercises available and also accessible through the workbook GUI tab in the upper right hand corner.  
 
 Note that these exercise links will not work if you choose a different port than `31415`, however, regardless of port choice the exercise workbooks will be available by name from the GUI tab.  If they do not work at all this suggests a problem in your setup and help should be sought from the presenters in the first instance.  
+
+### 2) Deep learning in Pytorch
+
+### 3) Inference Compilation
