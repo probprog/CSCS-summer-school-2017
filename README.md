@@ -128,21 +128,22 @@ We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker co
 docker run --rm -it -p 8888:8888 -v $PWD:/workspace gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
 
-This will start a Jupyter server inside the Docker container. In the terminal, you should see lines giving you a local url with an instance-specific token, which will look like this:
+This will start a Jupyter server inside the Docker container. In the terminal, you should see a line such as the following, telling you that the server is running and ready to accept connections:
 
 ```
-    Copy/paste this URL into your browser when you connect for the first time,
-    to login with a token:
-        http://0.0.0.0:8888/?token=600606ea4ef1358f13023e2e27c028a3ab8d5fe569be746c
+[I 20:09:17.270 NotebookApp] The Jupyter Notebook is running at: http://0.0.0.0:8888/
+
 ```
 
-Depending on the terminal you use, you can either right click on this link to open it in a web browser or copy and paste this link into the address bar a web browser.
+Depending on the terminal you use, you can either right click on the link `http://0.0.0.0:8888/` to open it in a web browser or just directly type it into the address bar a web browser.
 
 You should now see a web browser window such as this:
 
-![](/resources/Screenshot_2017-09-04_21-28-09.png?raw=true)
+![](/resources/Screenshot_2017-09-04_22-09-44.png?raw=true)
 
-Please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
+Enter `cscs` as the password to authenticate.
+
+Now please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
 
 ![](/resources/Screenshot_2017-09-04_21-32-12.png?raw=true)
 
