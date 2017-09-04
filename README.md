@@ -115,6 +115,8 @@ Note that these exercise links will not work if you choose a different port than
 
 Anglican [documentation](http://www.robots.ox.ac.uk/~fwood/anglican/language/index.html) is available online, as are a number of helpful and simple [example programs](http://www.robots.ox.ac.uk/~fwood/anglican/examples/index.html).
 
+[Clojure documentation](https://clojuredocs.org/) is widely available online.  Google searches like "clojure how to sort a list" are likely to provide direct and clear implementations.
+
 ### 2) Deep learning in Pytorch
 
 ### 3) Inference Compilation
