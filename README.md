@@ -73,7 +73,7 @@ docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.
 
 ### Windows 10
 
-Install [Docker](https://docs.docker.com/docker-for-windows/install/)  [Git bash](https://git-for-windows.github.io/), and an [X-Windows Server](https://sourceforge.net/projects/xming/files/latest/download).  In the toolbar click the Docker button
+Install [Docker](https://docs.docker.com/docker-for-windows/install/) and [Git bash](https://git-for-windows.github.io/).  In the toolbar click the Docker button
 and increase the memory it uses under the advanced tab to, ideally, 8GB.
 
 Using Windows Powershell run `bash` then run `ipconfig` to get your machines ip address then run the following command with 999.999.999.999 replaced with your ip address
@@ -102,9 +102,9 @@ On Windows the physics example program will not display X-windows contents corre
 
 This will have started a new Docker container using the `anglican-infcomp` image that you pulled in the previous step.
 
-In these commands `--rm` indicates that the container will be removed when it exists, `-it` attaches an interactive terminal to the container, `-p 31415:31415` sets up a port mapping for port `31415` that is used for the Gorilla REPL for Clojure, and `-v $PWD:/workspace` mounts your current folder `CSCS-summer-school-2017` as `/workspace` within the container. The flags `-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix` set up the X server access that is needed for one of the exercises using GUI.
+In this command `--rm` indicates that the container will be removed when it exists, `-it` attaches an interactive terminal to the container, `-p 31415:31415` sets up a port mapping for port `31415` that is used for the Gorilla REPL for Clojure, and `-v $PWD:/workspace` mounts your current folder `CSCS-summer-school-2017` as `/workspace` within the container. The flags `-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix` set up the X server access that is needed for one of the exercises using GUI.
 
-If you want to run with GPU support, replace `docker` with `nvidia-docker` in the above commands.
+If you want to run with GPU support, replace `docker` with `nvidia-docker` in the above command.
 
 # Exercises
 
@@ -147,23 +147,24 @@ We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker co
 docker run --rm -it -p 8888:8888 -v $PWD:/workspace gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
 
-This will start a Jupyter server inside the Docker container. In the terminal, you should see lines giving you a local url with an instance-specific token, which will look like this:
+This will start a Jupyter server inside the Docker container. In the terminal, you should see a line such as the following, telling you that the server is running and ready to accept connections:
 
 ```
-    Copy/paste this URL into your browser when you connect for the first time,
-    to login with a token:
-        http://0.0.0.0:8888/?token=600606ea4ef1358f13023e2e27c028a3ab8d5fe569be746c
+[I 20:09:17.270 NotebookApp] The Jupyter Notebook is running at: http://0.0.0.0:8888/
+
 ```
 
-Depending on the terminal you use, you can either right click on this link to open it in a web browser or copy and paste this link into the address bar a web browser.
+Depending on the terminal you use, you can either right click on the link `http://0.0.0.0:8888/` to open it in a web browser or just directly type it into the address bar a web browser.
 
 You should now see a web browser window such as this:
 
-![](/Screenshot_2017-09-04_21-28-09.png?raw=true)
+![](/resources/Screenshot_2017-09-04_22-09-44.png?raw=true)
 
-Please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
+Enter `cscs` as the password to authenticate.
 
-![](/Screenshot_2017-09-04_21-32-12.png?raw=true)
+Now please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
+
+![](/resources/Screenshot_2017-09-04_21-32-12.png?raw=true)
 
 Now click on `CSCS-summer-school-2017-exercise-2.ipynb` to start the exercise notebook.
 
@@ -199,4 +200,4 @@ In one of the panes, start a Clojure browser-based repl
 lein gorilla :port 31415 :ip 0.0.0.0
 ```
 
-Open a web browser and browse to the Captcha exercise in [src/worksheets/captcha.clj](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha.clj) (solutions are [here](http://0.0.0.0:31415/worksheet.html?filename=src/solutions/captcha-solutions.clj) and follow the instructions.
+Open a web browser and browse to the Captcha exercise in [src/worksheets/captcha.clj](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha.clj) (solutions are [here](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha-solutions.clj) and follow the instructions.
