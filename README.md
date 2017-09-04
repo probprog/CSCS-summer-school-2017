@@ -91,13 +91,13 @@ then start a Clojure browser-based repl (read evaluate print loop)
 lein gorilla :port 31415 :ip 0.0.0.0
 ```
 
-Open a web browser and browse to the first learning-Clojure exercise workbook [http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-clojure/01-clojure-overview.clj](01-clojure-overview.clj)
+Open a web browser and browse to the first learning-Clojure exercise workbook [01-clojure-overview.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-clojure/01-clojure-overview.clj)
 
 We recommend going through 4 exercises
 
-  1. [http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-clojure/02-clojure-exercises.clj](02-clojure-exercises.clj)
-  2. [http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/01-hello-world.clj](01-hello-world.clj)
-  3. [http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/02-gaussian.clj](02-gaussian.clj)
-  4. [http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/03-physics.clj](03-physics.clj)
+  1. [02-clojure-exercises.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-clojure/02-clojure-exercises.clj)
+  2. [01-hello-world.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/01-hello-world.clj)
+  3. [02-gaussian.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/02-gaussian.clj)
+  4. [03-physics.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/03-physics.clj)
 
 Noting that there are more exercises available and accessible through the workbook GUI tab in the upper right hand corner.
