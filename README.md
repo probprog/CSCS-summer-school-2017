@@ -69,8 +69,14 @@ xhost + $ip
 docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
 ```
 
+### Windows
 
-This will start a new Docker container using the `anglican-infcomp` image that you pulled in the previous step.
+??????
+
+
+
+
+This will have started a new Docker container using the `anglican-infcomp` image that you pulled in the previous step.
 
 In this command `--rm` indicates that the container will be removed when it exists, `-it` attaches an interactive terminal to the container, `-p 31415:31415` sets up a port mapping for port `31415` that is used for the Gorilla REPL for Clojure, and `-v $PWD:/workspace` mounts your current folder `CSCS-summer-school-2017` as `/workspace` within the container. The flags `-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix` set up the X server access that is needed for one of the exercises using GUI.
 
