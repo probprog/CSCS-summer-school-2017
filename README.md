@@ -111,6 +111,10 @@ There are more exercises available and also accessible through the workbook GUI 
 
 Note that these exercise links will not work if you choose a different port than `31415`, however, regardless of port choice the exercise workbooks will be available by name from the GUI tab.  If they do not work at all this suggests a problem in your setup and help should be sought from the presenters in the first instance.  
 
+#### Important : Online [Anglican](http://www.robots.ox.ac.uk/~fwood/anglican/) documentation
+
+Anglican [documentation](http://www.robots.ox.ac.uk/~fwood/anglican/language/index.html) is available online, as are a number of helpful and simple [example programs](http://www.robots.ox.ac.uk/~fwood/anglican/examples/index.html).
+
 ### 2) Deep learning in Pytorch
 
 ### 3) Inference Compilation
