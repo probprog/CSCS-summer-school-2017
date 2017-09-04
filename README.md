@@ -191,7 +191,7 @@ Once inside a tmux session, you can:
 
 Once detached, you can re-attach to a detached session using `tmux attach`.
 
-#### The exercise
+#### The Captcha worksheet
 
 Create a new tmux session from the `exercises/exercise-3-inference-compilation` folder by running `tmux` and split the session to two panes using `Control + b` and `"`.
 In one of the panes, start a Clojure browser-based repl
