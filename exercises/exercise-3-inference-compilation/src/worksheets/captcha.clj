@@ -269,7 +269,7 @@
 ;;; 
 ;;; This will start the PyTorch-based neural network training using training data sampled from the prior of the `captcha` probabilistic program written in this worksheet. `--obsEmb cnn2d6c` specifies the observation embedding used to compile this model. `--obsEmbDim 1024` sets the dimensionality of the observation embedding to 1024. `--standardize` standardizes the observation to have mean 0 and standard deviation 1 which is a standard trick in vision-based neural network training tasks. `--validSize 1 --batchSize 1` sets the validation set size and batch size to a conservative size of 1 so that we don't run out of memory.
 ;;; 
-;;; The training (compilation) time for this model is usually a few days and we won't have time to fully train our compilation artifact. Nevertheless, let the training run for a while and then stop the Python script using Ctrl+C and stop the ZMQ connection by running the following cell:
+;;; The training (compilation) time for this model is usually a few days so we won't have time to fully train our compilation artifact. Nevertheless, let the training run for a while and then stop the Python script using Ctrl+C and stop the ZMQ connection by running the following cell:
 ;; **
 
 ;; @@

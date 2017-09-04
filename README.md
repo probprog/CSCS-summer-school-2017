@@ -180,4 +180,4 @@ In one of the panes, start a Clojure browser-based repl
 lein gorilla :port 31415 :ip 0.0.0.0
 ```
 
-Open a web browser and browse to the Captcha exercise in [src/worksheets/captcha.clj](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha.clj) (solutions are [here](http://0.0.0.0:31415/worksheet.html?filename=src/solutions/captcha-solutions.clj) and follow the instructions.
+Open a web browser and browse to the Captcha exercise in [src/worksheets/captcha.clj](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha.clj) (solutions are [here](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha-solutions.clj) and follow the instructions.
