@@ -125,7 +125,7 @@ We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker co
 docker run --rm -it -p 8888:8888 -v $PWD:/workspace gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
 
-This will start a Jupyter server inside the Docker container. In the terminal, you should see lines giving you a local url with an instance-specific token, which looks like this:
+This will start a Jupyter server inside the Docker container. In the terminal, you should see lines giving you a local url with an instance-specific token, which will look like this:
 
 ```
     Copy/paste this URL into your browser when you connect for the first time,
@@ -134,6 +134,12 @@ This will start a Jupyter server inside the Docker container. In the terminal, y
 ```
 
 Depending on the terminal you use, you can either right click on this link to open it in a web browser or copy and paste this link into the address bar a web browser.
+
+You should now see a web browser window such as this:
+
+![](/Screenshot_2017-09-04_21-28-09.png?raw=true)
+
+Please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
 
 ## Exercise 3: Inference Compilation
 
