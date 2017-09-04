@@ -3,7 +3,7 @@ CSCS-ICS-DADSi Summer School: Accelerating Data Science with HPC, September 4 â€
 
 ## Step 1: Get the Docker image
 
-Prerequisite: you should have [Docker](https://www.docker.com/) installed.
+Prerequisite: you should have [Docker](https://www.docker.com/) installed.  After you install Docker you should configure it via `Preferences/Advances` to allow the Docker image to use 8Gb of memory.
 
 Start by pulling the `anglican-infcomp` image from the Docker hub:
 
