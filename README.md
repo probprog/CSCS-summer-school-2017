@@ -203,3 +203,7 @@ lein gorilla :port 31415 :ip 0.0.0.0
 Open a web browser and browse to the Captcha exercise in [src/worksheets/captcha.clj](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha.clj) (solutions are [here](http://0.0.0.0:31415/worksheet.html?filename=src/worksheets/captcha-solutions.clj) and follow the instructions.
 
 When you work through the notebook, there will be a point in which you will switch to the other tmux pane using `Control + b` and `<arrow key>` to start training the neural network.
+
+#### Downloading the pre-trained compilation artifact
+
+For the solutions worksheet to work, you will need to download a pre-trained artifact for the Captcha probabilistic program from [here](http://www.robots.ox.ac.uk/~tuananh/infcomp-artifacts/pyprob-artifact-20170904-180331) into the `exercises/exercise-3-inference-compilation/resources/` folder.
