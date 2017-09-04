@@ -71,21 +71,40 @@ ip=$(ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' )
 docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY=$ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
 ```
 
-### Windows
+### Windows 10
 
-Install [Docker](https://docs.docker.com/docker-for-windows/install/) and [Git bash](https://git-for-windows.github.io/).  In the toolbar click the Docker button
+Install [Docker](https://docs.docker.com/docker-for-windows/install/)  [Git bash](https://git-for-windows.github.io/), and an [X-Windows Server](https://sourceforge.net/projects/xming/files/latest/download).  In the toolbar click the Docker button
 and increase the memory it uses under the advanced tab to, ideally, 8GB.
 
+Using Windows Powershell run `bash` then run `ipconfig` to get your machines ip address then run the following command with 999.999.999.999 replaced with your ip address
+
+```
+docker run --rm -it -p 31415:31415 -v ${PWD}:/workspace -e DISPLAY=999.999.999.999:0 -v /tmp/.X11-unix:/tmp/.X11-unix gbaydin/anglican-infcomp
+```
+
+In the docker window then run
+
+```
+lein gorilla :port 31415 :ip 0.0.0.0
+```
 
 
+Then open a browser and go to
 
+```
+http://127.0.0.1:31415/worksheet.html
+```
+
+On Windows the physics example program will not display X-windows contents correctly with these settings.  
+
+------------------------------------------
 
 
 This will have started a new Docker container using the `anglican-infcomp` image that you pulled in the previous step.
 
-In this command `--rm` indicates that the container will be removed when it exists, `-it` attaches an interactive terminal to the container, `-p 31415:31415` sets up a port mapping for port `31415` that is used for the Gorilla REPL for Clojure, and `-v $PWD:/workspace` mounts your current folder `CSCS-summer-school-2017` as `/workspace` within the container. The flags `-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix` set up the X server access that is needed for one of the exercises using GUI.
+In these commands `--rm` indicates that the container will be removed when it exists, `-it` attaches an interactive terminal to the container, `-p 31415:31415` sets up a port mapping for port `31415` that is used for the Gorilla REPL for Clojure, and `-v $PWD:/workspace` mounts your current folder `CSCS-summer-school-2017` as `/workspace` within the container. The flags `-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix` set up the X server access that is needed for one of the exercises using GUI.
 
-If you want to run with GPU support, replace `docker` with `nvidia-docker` in the above command.
+If you want to run with GPU support, replace `docker` with `nvidia-docker` in the above commands.
 
 # Exercises
 
@@ -142,7 +161,7 @@ You should now see a web browser window such as this:
 
 ![](/Screenshot_2017-09-04_21-28-09.png?raw=true)
 
-Please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`. 
+Please navigate to the exercise worksheets by clicking on `exercises` and then `exercise-2-pytorch`.
 
 ![](/Screenshot_2017-09-04_21-32-12.png?raw=true)
 
