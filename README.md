@@ -58,6 +58,7 @@ First run
 socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
 
+You may need to [install socat](http://macappstore.org/socat/) if you can't run this command.  
 
 In a different terminal, change into the folder and start an interactive Docker container by running:
 
@@ -77,7 +78,7 @@ If you want to run with GPU support, replace `docker` with `nvidia-docker` in th
 
 ## Step 4: Exercises
 
-### Probabilistic programming in Anglican
+### 1) Probabilistic programming in Anglican
 
 In the docker instance change directory into the first programming project
 
@@ -91,13 +92,15 @@ then start a Clojure browser-based repl (read evaluate print loop)
 lein gorilla :port 31415 :ip 0.0.0.0
 ```
 
-Open a web browser and browse to the first learning-Clojure exercise workbook [01-clojure-overview.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-clojure/01-clojure-overview.clj)
+Open a web browser and browse to the first, introduction-to-functional-programming-and-Clojure, exercise workbook [01-clojure-overview.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-clojure/01-clojure-overview.clj)
 
-We recommend going through 4 exercises
+We recommend going through the following 4 exercises in order.  We recommend not completing the first exercise in its entirety, instead, just completing a reasonable percentage of it, enough to get the basics, and then to move to the Anglican [hello world example](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/01-hello-world.clj).  Use `shift-enter` to evaluate the current cell.  Additional commands and help are available in the GUI tab in the upper right hand corner.
 
   1. [02-clojure-exercises.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-clojure/02-clojure-exercises.clj)
   2. [01-hello-world.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/01-hello-world.clj)
   3. [02-gaussian.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/02-gaussian.clj)
   4. [03-physics.clj](http://0.0.0.0:31415/worksheet.html?filename=worksheets/intro-to-anglican/03-physics.clj)
 
-Noting that there are more exercises available and accessible through the workbook GUI tab in the upper right hand corner.
+There are more exercises available and also accessible through the workbook GUI tab in the upper right hand corner.  
+
+Note that these exercise links will not work if you choose a different port than `31415`, however, regardless of port choice the exercise workbooks will be available by name from the GUI tab.  If they do not work at all this suggests a problem in your setup and help should be sought from the presenters in the first instance.  
