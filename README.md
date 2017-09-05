@@ -27,7 +27,7 @@ Please follow instructions at the [nvidia-docker repository](https://github.com/
 At a location of your choosing, run
 
 ```
-git clone git@github.com:probprog/CSCS-summer-school-2017.git
+git clone https://github.com/probprog/CSCS-summer-school-2017.git
 ```
 
 to clone this repository containing the summer school exercises.
