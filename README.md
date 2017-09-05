@@ -54,7 +54,9 @@ docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY -v /tmp/.X11-un
 
 ### Mac
 
-First run
+First you need to download and install from [XQuartz](https://www.xquartz.org/).
+
+Then run
 
 ```
 socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
