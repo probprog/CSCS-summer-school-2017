@@ -3,6 +3,10 @@ CSCS-ICS-DADSi Summer School: Accelerating Data Science with HPC, September 4 â€
 
 # Preparation
 
+## Step 0: Install Docker
+
+Follow instructions on the [Docker website](https://www.docker.com/) to install Docker (don't use `brew`, etc.).
+
 ## Step 1: Get the Docker image
 
 Prerequisite: you should have [Docker](https://www.docker.com/) installed.  After you install Docker you should configure it via `Preferences/Advances` to allow the Docker image to use 8Gb of memory.
@@ -54,7 +58,9 @@ docker run --rm -it -p 31415:31415 -v $PWD:/workspace -e DISPLAY -v /tmp/.X11-un
 
 ### Mac
 
-First run
+First you need to download and install [XQuartz](https://www.xquartz.org/).
+
+Then run
 
 ```
 socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
@@ -141,11 +147,13 @@ Anglican [documentation](http://www.robots.ox.ac.uk/~fwood/anglican/language/ind
 
 ## Exercise 2: Deep learning in Pytorch
 
-We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker container. Start by running
+We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker container. Start by running (for Linux and Mac):
 
 ```
 docker run --rm -it -p 8888:8888 -v $PWD:/workspace gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
+
+On Windows, please replace `-v $PWD:/workspace` with `-v %cd%:/workspace` if you are using the command line (cmd) or with `-v ${PWD}:/workspace` if you are using the PowerShell.
 
 This will start a Jupyter server inside the Docker container. In the terminal, you should see a line such as the following, telling you that the server is running and ready to accept connections:
 
