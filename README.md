@@ -147,11 +147,13 @@ Anglican [documentation](http://www.robots.ox.ac.uk/~fwood/anglican/language/ind
 
 ## Exercise 2: Deep learning in Pytorch
 
-We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker container. Start by running
+We will run a [Jupyter](http://jupyter.org/) Python notebook using the Docker container. Start by running (for Linux and Mac):
 
 ```
 docker run --rm -it -p 8888:8888 -v $PWD:/workspace gbaydin/anglican-infcomp jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 ```
+
+On Windows, please replace `-v $PWD:/workspace` with `-v %cd%:/workspace` if you are using the command line (cmd) or with `-v ${PWD}:/workspace` if you are using the PowerShell.
 
 This will start a Jupyter server inside the Docker container. In the terminal, you should see a line such as the following, telling you that the server is running and ready to accept connections:
 
