@@ -162,7 +162,7 @@ This will start a Jupyter server inside the Docker container. In the terminal, y
 
 ```
 
-Depending on the terminal you use, you can either right click on the link `http://0.0.0.0:8888/` to open it in a web browser or just directly type it into the address bar a web browser.
+Depending on the terminal you use, you can either right click on the link `http://0.0.0.0:8888/` to open it in a web browser or just directly type it into the address bar a web browser. On Windows, please use the link `http://localhost:8888/` instead.
 
 You should now see a web browser window such as this:
 
